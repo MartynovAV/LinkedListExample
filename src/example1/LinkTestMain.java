@@ -1,4 +1,4 @@
-package neilA;
+package example1;
 
 public class LinkTestMain {
     public static void main(String[] args) {

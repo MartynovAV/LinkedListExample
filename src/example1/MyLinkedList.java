@@ -1,4 +1,4 @@
-package neilA;
+package example1;
 
 import java.util.Arrays;
 
