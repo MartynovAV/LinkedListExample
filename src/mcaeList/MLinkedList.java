@@ -100,6 +100,7 @@ public class MLinkedList {
             temp = temp.getNext();
         }
     }
+    //Iterative approach
 //https://www.geeksforgeeks.org/reverse-a-linked-list/
 //https://youtu.be/jY-EUKXYT20
         public void reverseListIter() {
@@ -118,11 +119,11 @@ public class MLinkedList {
                 head=prev;
             }
 
-
+//Reverse a Linked List: Recursive | Java
+//https://www.youtube.com/watch?v=Ip4y7Inx7QY
     public void reverseListRecursion(){
         head=reverseListRec(head);
     }
-
     private Node reverseListRec(Node curr) {
         if (curr == null){
             return null;
@@ -135,11 +136,7 @@ public class MLinkedList {
             nextNode.setNext(curr);
             return rest;
         }
-
     }
-
-
-
 
     }
 
