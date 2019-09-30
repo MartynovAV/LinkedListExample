@@ -119,11 +119,11 @@ public class MLinkedList {
             }
 
 
-    public void reverseListReccursion(){
-        head=reverseListRecc(head);
+    public void reverseListRecursion(){
+        head=reverseListRec(head);
     }
 
-    private Node reverseListRecc(Node curr) {
+    private Node reverseListRec(Node curr) {
         if (curr == null){
             return null;
         } else if(curr.getNext()==null){
@@ -131,7 +131,7 @@ public class MLinkedList {
         } else{
             Node nextNode=curr.getNext();
             curr.setNext(null);
-            Node rest=reverseListRecc(nextNode);
+            Node rest=reverseListRec(nextNode);
             nextNode.setNext(curr);
             return rest;
         }
