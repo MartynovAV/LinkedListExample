@@ -15,7 +15,7 @@ public class MainTest {
         list.insertHead(20);
         System.out.println(list);
 
-        list.reverseListRecursion();
+        list.reverseListIterat();
         System.out.println(list);
 
     }

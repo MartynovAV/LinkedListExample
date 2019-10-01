@@ -103,9 +103,13 @@ public class MLinkedList {
     //Iterative approach
 //https://www.geeksforgeeks.org/reverse-a-linked-list/
 //https://youtu.be/jY-EUKXYT20
-        public void reverseListIter() {
+        public void reverseListIterat(){
+            head=reverseListIter();
+        }
+
+        private Node reverseListIter() {
             if (head == null) {
-                return;
+                return null;
             }
             Node prev=null;
             Node current=head;
@@ -117,12 +121,13 @@ public class MLinkedList {
                 current = fwd;
             }
                 head=prev;
+                return head;
             }
 
 //Reverse a Linked List: Recursive | Java
 //https://www.youtube.com/watch?v=Ip4y7Inx7QY
     public void reverseListRecursion(){
-        head=reverseListRec(head);
+        head=reverseListRec(this.head);
     }
     private Node reverseListRec(Node curr) {
         if (curr == null){
