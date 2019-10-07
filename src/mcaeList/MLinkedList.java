@@ -45,6 +45,33 @@ public class MLinkedList {
         node.setNext(new Node(value));
         size++;
     }
+//Insert a node at a specific position in a linked list
+//https://www.youtube.com/watch?v=Zd7TE-AjcOE
+      public void insertNodeAtPosition(int value,int pos){
+          if(pos<0||pos>=(size+1)){
+              throw new ArrayIndexOutOfBoundsException();
+          }
+            Node inserted=new Node(value);
+            if(head==null){
+                head=inserted;
+                size++;
+                return;
+            }
+            if (pos==0){
+                    Node temp=head;
+                    head=inserted;
+                    head.setNext(temp);
+                    size++;
+            } else{
+                  Node prev=head;
+                  for (int i = 0; i <pos-1 ; i++) {
+                      prev=prev.getNext();
+                  }
+                  Node after=prev.getNext();
+                  prev.setNext(inserted);
+                  inserted.setNext(after);
+                  size++;}
+      }
 
     //Printing elements of the list
     //toString
@@ -212,7 +239,25 @@ public class MLinkedList {
         return (node1 == null && node2== null);
     }
 
-
+    public static void deleteNode(MLinkedList list, int position) {
+        if (position == 0) {
+            list.head = list.head.next;
+            list.size--;
+        } else if (position < 0 || position >= list.size) {
+            throw new ArrayIndexOutOfBoundsException();
+        } else {
+            Node pre = list.head;
+            for (int i = 0; i < position - 1; i++) {
+                pre = pre.getNext();
+            }
+            Node after = list.head;
+            for (int i = 0; i < position + 1; i++) {
+                after = after.getNext();
+            }
+            pre.setNext(after);
+            list.size--;
+        }
+    }
 }
 
 
