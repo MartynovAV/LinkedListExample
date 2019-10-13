@@ -6,7 +6,14 @@ public class MLinkedList {
     private Node head;
     private int size;
 
-    private class Node {
+    public MLinkedList(Node head) {
+        this.head = head;
+    }
+
+    public MLinkedList() {
+    }
+
+    private static class Node {
         private int value;
         private Node next;
 
@@ -258,6 +265,53 @@ public class MLinkedList {
             list.size--;
         }
     }
+//https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/
+    public static MLinkedList mergeLists(MLinkedList list1,MLinkedList list2){
+        /* a dummy first node to hang the result on */
+        Node dummyNode=new Node(0);
+    /* tail points to the last result node */
+        Node tail = dummyNode;
+        while(true)
+        {
+        /* if either list runs out, use the other list */
+            if(list1.head == null)
+            {
+                tail.setNext(list2.head);
+                break;
+            }
+            if(list2.head == null)
+            {
+                tail.setNext(list1.head);
+                break;
+            }
+
+        /* Compare the data of the two lists whichever lists' data is smaller, append it into tail and
+        advance the head to the next Node
+        */
+            if(list1.head.getValue() <= list2.head.getValue())
+            {
+                tail.setNext(list1.head);
+                list1.head = list1.head.getNext();
+            }
+            else
+            {
+                tail.setNext(list2.head);
+                list2.head = list2.head.getNext();
+            }
+            /* Advance the tail */
+            tail = tail.getNext();
+        }
+        Node newHead=dummyNode.getNext();
+        MLinkedList newList=new MLinkedList(newHead);
+        newList.size=list1.size+list2.size;
+        return newList;
+    }
+
+
+
 }
+
+
+
 
 
